@@ -205,7 +205,7 @@ require_once("../db.php");
 
 
 
-            <h3>Clients You have registered</h3>
+            <h3>Clients Database</h3>
 
             <div class="row margin-top-20">
 
