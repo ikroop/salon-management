@@ -98,7 +98,7 @@ if(isset($_SESSION['id_super'])) {
 
       <div class="form-group has-feedback">
 
-        <input type="text" class="form-control" name="username" value="chege">
+        <input type="text" class="form-control" name="username" value="superadmin">
 
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 
@@ -106,7 +106,7 @@ if(isset($_SESSION['id_super'])) {
 
       <div class="form-group has-feedback">
 
-        <input type="password" class="form-control" name="password" value="12345678">
+        <input type="password" class="form-control" name="password" value="123456">
 
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
 
