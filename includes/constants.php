@@ -15,19 +15,19 @@
     // your database's name
 
     
-    // $servername = "us-cdbr-iron-east-01.cleardb.net";
+// $servername = "us-cdbr-iron-east-01.cleardb.net";
+
+// $username = "b392fee07974af";
+
+// $password = "338bec78";
+
+// $dbname = "heroku_7ccf8a1d4c91da4";
     
-    // $username = "bd50b30cc512ef";
     
-    // $password = "9c827238";
-    
-    // $dbname = "heroku_7b8b317562f9d48";
-    
-    
-    // define("DATABASE", "heroku_7b8b317562f9d48");
-    // define("PASSWORD", "9c827238");
+    // define("DATABASE", "heroku_7ccf8a1d4c91da4");
+    // define("PASSWORD", "338bec78");
     // define("SERVER", "us-cdbr-iron-east-01.cleardb.net");
-    // define("USERNAME", "bd50b30cc512ef");
+    // define("USERNAME", "b392fee07974af");
     
     
     

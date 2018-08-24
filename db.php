@@ -4,21 +4,21 @@
 
 //Your Mysql Config
 
-// $servername = "us-cdbr-iron-east-01.cleardb.net";
+$servername = "us-cdbr-iron-east-01.cleardb.net";
 
-// $username = "bd50b30cc512ef";
+$username = "b392fee07974af";
 
-// $password = "9c827238";
+$password = "338bec78";
 
-// $dbname = "heroku_7b8b317562f9d48";
+$dbname = "heroku_7ccf8a1d4c91da4";
 
-$servername = "localhost";
+// $servername = "localhost";
 
-$username = "root";
+// $username = "root";
 
-$password = "2grateful";
+// $password = "2grateful";
 
-$dbname = "er";
+// $dbname = "er";
 
 
 //Create New Database Connection
