@@ -24,19 +24,19 @@
 // $dbname = "heroku_7ccf8a1d4c91da4";
     
     
-    // define("DATABASE", "heroku_7ccf8a1d4c91da4");
-    // define("PASSWORD", "338bec78");
-    // define("SERVER", "us-cdbr-iron-east-01.cleardb.net");
-    // define("USERNAME", "b392fee07974af");
+    define("DATABASE", "heroku_7ccf8a1d4c91da4");
+    define("PASSWORD", "338bec78");
+    define("SERVER", "us-cdbr-iron-east-01.cleardb.net");
+    define("USERNAME", "b392fee07974af");
     
     
     
     
     // your database's server
-    define("USERNAME", "root");
-    define("SERVER", "localhost");
-    define("PASSWORD", "2grateful");
-    define("DATABASE", "er");
+    // define("USERNAME", "root");
+    // define("SERVER", "localhost");
+    // define("PASSWORD", "2grateful");
+    // define("DATABASE", "er");
     
     
 

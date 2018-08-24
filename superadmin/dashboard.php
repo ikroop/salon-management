@@ -289,27 +289,18 @@ require_once("../db.php");
 
                 <div class="info-box-content">
 
-                  <span class="info-box-text">Registered Clients</span>
+                  <span class="info-box-text">Total payable Commission</span>
 
                   <?php
 
-                    $sql = "SELECT * FROM users1 WHERE active='1'";
+                      $sql = "SELECT SUM(commission) As total FROM admin";
 
-                    $result = $conn->query($sql);
-
-                    if($result->num_rows > 0) {
-
-                      $totalno = $result->num_rows;
-
-                    } else {
-
-                      $totalno = 0;
-
-                    }
+                      $result = $conn->query($sql);
+                      $row = $result->fetch_assoc();
 
                   ?>
 
-                  <span class="info-box-number"><?php echo $totalno; ?></span>
+                  <span class="info-box-number"><?php echo $row['total']; ?></span>
 
                 </div>
 
