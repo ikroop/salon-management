@@ -46,7 +46,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 				query("INSERT INTO history (id_member, service_offered, given_tithe) VALUES($member_number, '$service_offered', $tithe)");
 				//Set some session variables for easy reference
 				$_SESSION['successfulupdate'] = true;
-				 header("Location: church_form.php");
+				 header("Location: salon_form.php");
 				exit();
 			
 					}
@@ -55,7 +55,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 					$_SESSION['failUpdate'] = true;
 		   
-					header("Location: church_form.php");
+					header("Location: salon_form.php");
 		   
 				   exit();
 		   
@@ -64,7 +64,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 }
 else
 {
-  header("Location: center_form.php");
+  header("Location: salon_form.php");
 		exit();
 }
 ?>

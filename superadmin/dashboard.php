@@ -285,7 +285,7 @@ require_once("../db.php");
 
                 <div class="info-box bg-c-yellow">
 
-                <span class="info-box-icon bg-purple"><i class="ion ion-person-stalker"></i></span>
+                <span class="info-box-icon bg-purple"><i class="ion ion-social-usd"></i></span>
 
                 <div class="info-box-content">
 
