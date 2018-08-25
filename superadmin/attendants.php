@@ -226,7 +226,7 @@ require_once("../db.php");
 
 
 
-            <h3>Clerks</h3>
+            <h3>Attendants</h3>
 
             <hr>
 
