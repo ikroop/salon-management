@@ -123,7 +123,7 @@ require_once("../db.php");
           </li>
            <li>
 
-            <a href="register-farmer.php">Add Client</a>
+            <a href="register-client.php">Add Client</a>
 
           </li>
 
