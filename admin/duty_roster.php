@@ -48,6 +48,10 @@ require_once("../db.php");
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 
+  <!-- DataTables -->
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+
   <!-- Theme style -->
 
   <link rel="stylesheet" href="../css/AdminLTE.min.css">
@@ -116,22 +120,51 @@ require_once("../db.php");
 
         <ul class="nav navbar-nav">
 
+          <?php if(empty($_SESSION['id_super'])) { ?>
+
           <li>
+
+            <a href="login.php">Login</a>
+
+          </li>
+
+          <?php } else { 
+
+
+
+            if(isset($_SESSION['id_super'])) { 
+
+          ?>        
+
+           <li>
 
             <a href="register-attendant.php">Add Attendant</a>
 
           </li>
-           <li>
 
-            <a href="register-client.php">Add Client</a>
+          <?php
 
-          </li>
+          } else if(isset($_SESSION['id_super'])) { 
+
+          ?>        
 
           <li>
 
-            <a href="duty_roster.php">Duty Roster</a>
+            <a href="dashboard.php">Dashboard</a>
 
           </li>
+
+          <?php } ?>
+
+          <li>
+
+            <a href="logout.php">Logout</a>
+
+          </li>
+
+          <?php } ?>  
+
+
 
         </ul>
 
@@ -140,6 +173,10 @@ require_once("../db.php");
     </nav>
 
   </header>
+
+
+
+  
 
 
 
@@ -169,13 +206,13 @@ require_once("../db.php");
 
                 <ul class="nav nav-pills nav-stacked">
 
-                  <li class="active"><a href="dashboard.php"><i class="fa fa-dashboard text-purple"></i>Dashboard</a></li>
+                  <li><a href="dashboard.php"><i class="fa fa-dashboard text-purple"></i> Dashboard</a></li>
 
                   <li><a href="users.php"><i class="fa fa-address-card-o text-purple"></i> Clients</a></li>
 
                   <li><a href="view_appointments.php"><i class="fa fa-address-card-o text-purple"></i> Appointments</a></li>
-                  
-                  <li><a href="attendants.php"><i class="fa fa-calculator text-purple"></i> Attendants</a></li>
+
+                  <li class="active"><a href="attendants.php"><i class="fa fa-calculator text-purple"></i> Attendants</a></li>
 
                   <li><a href="logout.php"><i class="fa fa-arrow-circle-o-right text-red"></i> Logout</a></li>
 
@@ -191,132 +228,70 @@ require_once("../db.php");
 
 
 
-            <h3>Current Statistics</h3>
+            <h3>Duty Roster</h3>
 
-            <div class="row">
-              
+            <hr>
 
-              <div class="col-md-6">
+            <div class="row margin-top-20">
 
-                <div class="info-box bg-c-yellow">
+              <div class="col-md-12">
 
-                  <span class="info-box-icon bg-purple"><i class="ion ion-person-stalker"></i></span>
+                <div class="box-body table-responsive no-padding">
 
-                  <div class="info-box-content">
+                  <table id="info-table" class="table table-hover">
 
-                    <span class="info-box-text">Registered Attendants</span>
+                    <thead>
 
-                    <?php
+                      <th>Date</th>
 
-                      $sql = "SELECT * FROM admin";
+                      <th>Attendant</th>
 
-                      $result = $conn->query($sql);
+                    </thead>
 
-                      if($result->num_rows > 0) {
+                    <tbody>
 
-                        $totalno = $result->num_rows;
+                      <?php
 
-                      } else {
-
-                        $totalno = 0;
-
-                      }
-
-                    ?>
-
-                    <span class="info-box-number"><?php echo $totalno; ?></span>
-
-                  </div>
-
-                </div>
-                <div class="info-box bg-c-yellow">
-
-                  <span class="info-box-icon bg-purple"><i class="ion ion-social-usd-outline"></i></span>
-
-                  <div class="info-box-content">
-
-                    <span class="info-box-text">Total Income Generated</span>
-
-                    <?php
-
-                      $sql = "SELECT SUM(tithe) As total FROM users1";
-
-                      $result = $conn->query($sql);
-                      $row = $result->fetch_assoc();
-
-                    ?>
-
-                    <span class="info-box-number"><?php echo "Ksh"; echo " "; echo $row['total']; ?></span>
-
-                  </div>
-
-                </div>
-
-              </div>
-              
-
-          
-
-              <div class="col-md-6">
-
-                <div class="info-box bg-c-yellow">
-
-                  <span class="info-box-icon bg-purple"><i class="ion ion-person-stalker"></i></span>
-
-                  <div class="info-box-content">
-
-                    <span class="info-box-text">Registered Clients</span>
-
-                    <?php
-
-                      $sql = "SELECT * FROM users1 WHERE active='1'";
+                      $sql = "SELECT * FROM duties";
 
                       $result = $conn->query($sql);
 
                       if($result->num_rows > 0) {
 
-                        $totalno = $result->num_rows;
+                        while($row = $result->fetch_assoc()) {
 
-                      } else {
+                      ?>
 
-                        $totalno = 0;
+                      <tr>
+
+                        <td><?php
+                        $att = $row['attendant'];
+                        $sql1 = "SELECT * FROM admin WHERE id_admin='$att'";
+
+                        $result1 = $conn->query($sql1);
+  
+                        $row1 = $result1->fetch_assoc();
+                        echo $row['date']; ?></td>
+                         
+                        <td><?php echo $row1['fullname']; ?></td>
+
+                      </tr>  
+
+                     <?php
+
+                        }
 
                       }
 
                     ?>
 
-                    <span class="info-box-number"><?php echo $totalno; ?></span>
+                    </tbody>                    
 
-                  </div>
-
-                </div>
-
-                <div class="info-box bg-c-yellow">
-
-                <span class="info-box-icon bg-purple"><i class="ion ion-social-usd"></i></span>
-
-                <div class="info-box-content">
-
-                  <span class="info-box-text">Total payable Commission</span>
-
-                  <?php
-
-                      $sql = "SELECT SUM(commission) As total FROM admin";
-
-                      $result = $conn->query($sql);
-                      $row = $result->fetch_assoc();
-
-                  ?>
-
-                  <span class="info-box-number"><?php echo $row['total']; ?></span>
-
-                </div>
+                  </table>
 
                 </div>
 
               </div>
-
-        
 
             </div>
 
@@ -331,8 +306,6 @@ require_once("../db.php");
     </section>
 
 
-
-    
 
 
 
@@ -380,9 +353,41 @@ require_once("../db.php");
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<!-- DataTables -->
+
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
 <!-- AdminLTE App -->
 
 <script src="../js/adminlte.min.js"></script>
+
+
+
+<script>
+
+  $(function () {
+
+    $('#info-table').DataTable({
+
+      'paging'      : true,
+
+      'lengthChange': false,
+
+      'searching'   : true,
+
+      'ordering'    : true,
+
+      'info'        : true,
+
+      'autoWidth'   : true
+
+    });
+
+  });
+
+</script>
+
+
 
 </body>
 
