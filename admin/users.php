@@ -117,6 +117,11 @@ require_once("../db.php");
       <div class="navbar-custom-menu">
 
         <ul class="nav navbar-nav">
+        <li>
+
+        <a href="appointments.php">Add Appointment</a>
+
+      </li>
 
         <li>
 
@@ -188,6 +193,8 @@ require_once("../db.php");
                   <li><a href="dashboard.php"><i class="fa fa-dashboard text-purple"></i> Dashboard</a></li>
 
                   <li class="active"><a href="users.php"><i class="fa fa-address-card-o text-purple"></i> Clients</a></li>
+
+                  <li><a href="view_appointments.php"><i class="fa fa-address-card-o text-purple"></i> Appointments</a></li>
 
                   <li><a href="salon_form.php"><i class="fa fa-pencil text-purple"></i>Update Service</a></li>
 
@@ -281,11 +288,11 @@ require_once("../db.php");
 
                           <?php if ($row['active'] == '1'){ 
 
-                          echo "Active";
+                          echo "<p class='text-green'>Active</p>";
 
                         } else if($row['active'] == '3'){
 
-                          echo "Deactivated";
+                          echo "<p class='text-orange'>Deactivated</p>";
 
                         }
 
@@ -325,7 +332,7 @@ require_once("../db.php");
 
                         </td>
                         <td>
-                          <a href="delete_member.php?id=<?php echo $row['id_member']; ?>" class="confirmdelete">Delete</a></td>
+                          <a href="delete_member.php?id=<?php echo $row['id_member']; ?>" class="confirmdelete"><span class="text-red">Delete</span></a></td>
                       </td>
 
                       </tr>

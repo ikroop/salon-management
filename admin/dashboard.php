@@ -113,13 +113,23 @@ require_once("../db.php");
       <!-- Navbar Right Menu -->
 
       <div class="navbar-custom-menu">
-
+    
         <ul class="nav navbar-nav">
+        <li>
+
+        <a href="#" id="myBtn"><i class="ion  ion-android-notifications"></i></a>
+
+        </li>
         <li>
 
         <a href="password.php">Credentials</a>
 
         </li>
+        <li>
+
+            <a href="appointments.php">Add Appointment</a>
+
+          </li>
            <li>
 
             <a href="register-member.php">Add Client</a>
@@ -137,7 +147,61 @@ require_once("../db.php");
 
 
   <!-- Content Wrapper. Contains page content -->
+  <!-- The Modal -->
+<div id="myModal" class="modal">
 
+<!-- Modal content -->
+<div class="modal-content">
+  <span class="close">&times;</span>
+  <?php
+    $current_attendant = $_SESSION['id_admin'];
+    $sql = "SELECT * FROM appointments WHERE attendant='$current_attendant'";
+
+    $result = $conn->query($sql);
+    if($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) 
+      {
+        $appointment_date = $row['date_of_appointment'];
+        $some_client = $row['client'];
+
+  ?>
+
+
+  <span class="info-box-number">
+  <?php 
+  $now = time();
+  $some_date = strtotime($appointment_date);
+  $datediff = $some_date - $now;
+  $days = round($datediff / (60 * 60 * 24));
+  $correct_days = abs($days);
+  if ($correct_days < 4){
+  $sql2 = "SELECT * FROM users1 WHERE member_number=$some_client";
+ 
+  $result1 = $conn->query($sql2);
+  $row2 = $result1->fetch_assoc();
+  echo "<a href='view_appointments.php'>";
+  echo abs($correct_days);
+  echo " days to your appointment with "; 
+  echo $row2['first_name']; 
+  echo " ";
+  echo $row2['last_name'];
+  echo "</a>";
+
+}
+
+}
+    
+}
+else {
+  $appointment_date = 0;
+  echo "<span class='info-box-number'>You don't have any appointments for now</span>";
+}
+ ?></span>
+
+  </p>
+</div>
+
+</div>
   <div class="content-wrapper" style="margin-left: 0px;">
 
 
@@ -165,6 +229,8 @@ require_once("../db.php");
                   <li class="active"><a href="dashboard.php"><i class="fa fa-dashboard text-purple"></i> Dashboard</a></li>
 
                   <li><a href="users.php"><i class="fa fa-address-card-o text-purple"></i> Clients</a></li>
+
+                  <li><a href="view_appointments.php"><i class="fa fa-address-card-o text-purple"></i> Appointments</a></li>
 
                   <li><a href="salon_form.php"><i class="fa fa-pencil text-purple"></i>Update Service</a></li>
 
@@ -284,6 +350,47 @@ require_once("../db.php");
 <!-- AdminLTE App -->
 
 <script src="../js/adminlte.min.js"></script>
+
+<script>
+
+function Show(){
+  if (document.getElementById('notifications').style.display == 'block'){
+    document.getElementById('notifications').style.display = 'none';
+  }
+  else{
+    document.getElementById('notifications').style.display = 'block';
+  }
+}
+
+</script>
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
 
 </body>
 

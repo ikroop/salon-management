@@ -6,7 +6,7 @@ session_start();
 
 
 
-if(empty($_SESSION['id_super'])) {
+if(empty($_SESSION['id_admin'])) {
 
   header("Location: index.php");
 
@@ -118,17 +118,6 @@ require_once("../db.php");
 
         <ul class="nav navbar-nav">
 
-        <li>
-
-          <a href="register-client.php">Add Client</a>
-
-        </li>
-        <li>
-
-        <a href="password.php">Credentials</a>
-
-        </li>
-
         </ul>
 
       </div>
@@ -187,11 +176,11 @@ require_once("../db.php");
 
                   <li><a href="dashboard.php"><i class="fa fa-dashboard text-purple"></i> Dashboard</a></li>
 
-                  <li class="active"><a href="users.php"><i class="fa fa-address-card-o text-purple"></i> Clients</a></li>
+                  <li><a href="users.php"><i class="fa fa-address-card-o text-purple"></i> Clients</a></li>
 
-                  <li><a href="view_appointments.php"><i class="fa fa-address-card-o text-purple"></i> Appointments</a></li>
+                  <li class="active"><a href="view_appointments.php"><i class="fa fa-address-card-o text-purple"></i> Appointments</a></li>
 
-                  <li><a href="attendants.php"><i class="fa fa-address-card-o text-purple"></i> Attendants</a></li>
+                  <li><a href="attendants.php"><i class="fa fa-calculator text-purple"></i> Attendants</a></li>
 
                   <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right text-red"></i> Logout</a></li>
 
@@ -207,7 +196,9 @@ require_once("../db.php");
 
 
 
-            <h3>Clients Database</h3>
+            <h3>APPOINTMENTS</h3>
+
+            <hr>
 
             <div class="row margin-top-20">
 
@@ -219,33 +210,24 @@ require_once("../db.php");
 
                     <thead>
 
-                      <th>First Name</th>
+                      <th>Client</th>
 
-                      <th>Last Name</th>
+                      <th>Appointment Description</th>
 
-                      <th>Residence</th>
+                      <th>Attendant</th>
 
-                      <th>Occupation</th>
-
-                      <th>Client Number</th>
-
-                      <th>Spent Cash</th>
-
-                      <th>Created At</th>
+                      <th>Date</th>
 
                       <th>Status</th>
-
-                      <th>Action</th>
-                      <th>Delete</th>
 
                     </thead>
 
                     <tbody>
 
                       <?php
-                       $current_attendant = $_SESSION['id_super'];
+                       $current_attendant = $_SESSION['id_admin'];
                       //  $sql = "SELECT * FROM users1 WHERE added_by='$current_attendant'";
-                       $sql = "SELECT * FROM users1";
+                       $sql = "SELECT * FROM appointments";
 
                             $result = $conn->query($sql);
 
@@ -265,29 +247,45 @@ require_once("../db.php");
 
                       <tr>
 
-                        <td><a href="view-user.php?id=<?php echo $row['member_number']; ?>"><?php echo $row['first_name']; ?></a></td>
+                        <td>
+                        <a href="view-user.php?id=<?php echo $row['client']; ?>">
+                        <?php
+                            $selected_client = $row['client'];
+                             $sql = "SELECT first_name, last_name FROM users1 WHERE member_number='$selected_client'";
 
-                        <td><a href="view-user.php?id=<?php echo $row['member_number']; ?>"><?php echo $row['last_name']; ?></a></td>
+                            $result1 = $conn->query($sql);
+                            $row1 = $result1->fetch_assoc();
+                            echo $row1['first_name']; echo " "; echo $row1['last_name'];
+                        ?>
+                        </a>
+                        </td>
 
-                        <td><?php echo $row['residence']; ?></td>
+                        <td><?php echo $row['description']; ?></td>
 
-                        <td><?php echo $row['occupation']; ?></td>
+                        <td class="text-orange">
+                       
+                        <?php 
+                        $attendant = $row['attendant'];
+                        $sql1 = "SELECT fullname FROM admin WHERE id_admin='$attendant'";
 
-                        <td><?php echo $row['member_number']; ?></td>
+                        $result2 = $conn->query($sql1);
+                        $row2 = $result2->fetch_assoc();
+                        echo $row2['fullname'];
+                        ?>
+                      
+                        </td>
 
-                        <td><?php echo $row['tithe']; ?></td>
-
-                        <td><?php echo $row['createdAt']; ?></td>
+                        <td><?php echo $row['date_of_appointment']; ?></td>
 
                         <td>
 
                           <?php if ($row['active'] == '1'){ 
 
-                          echo "Active";
+                          echo "<p class='text-green'>Pending</p>";
 
                         } else if($row['active'] == '3'){
 
-                          echo "Deactivated";
+                          echo "<p class='text-yellow'>Attended</p>";
 
                         }
 
@@ -296,39 +294,6 @@ require_once("../db.php");
 
 
                         </td>
-
-                        <td>
-
-                          
-
-                          <?php
-
-                          if($row['active'] == '1') {
-
-                            ?>
-
-                            <a href="deactivate-farmer.php?id=<?php echo $row['id_member']; ?>" class="confirmation">Deactivate</a></td>
-
-                            <?php
-
-                            } else if ($row['active'] == '3') {
-
-                            ?>
-
-                              <a href="approve-farmer.php?id=<?php echo $row['id_member']; ?>" class="reactivate">Reactivate</a>
-
-                            <?php
-
-                          }
-
-                        ?>    
-
-
-
-                        </td>
-                        <td>
-                          <a href="delete_client.php?id=<?php echo $row['id_member']; ?>" class="confirmdelete">Delete</a></td>
-                      </td>
 
                       </tr>
 
@@ -454,7 +419,7 @@ require_once("../db.php");
 
     var confirmIt = function (e) {
 
-        if (!confirm('Are you sure you want to deactivate this Client?')) e.preventDefault();
+        if (!confirm('Are you sure you want to deactivate this appointment?')) e.preventDefault();
 
     };
 
@@ -470,7 +435,7 @@ require_once("../db.php");
 
     var confirmIt = function (e) {
 
-        if (!confirm('Are you sure you want to delete this Client?')) e.preventDefault();
+        if (!confirm('Are you sure you want to delete this appointment?')) e.preventDefault();
 
     };
 
@@ -486,7 +451,7 @@ require_once("../db.php");
 
     var confirmIt = function (e) {
 
-        if (!confirm('Are you sure you want to Reactivate this Client?')) e.preventDefault();
+        if (!confirm('Are you sure you want to Reactivate this appointment?')) e.preventDefault();
 
     };
 

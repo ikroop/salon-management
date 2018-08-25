@@ -200,6 +200,8 @@ if(empty($_SESSION['id_admin'])) {
 
                   <li><a href="users.php"><i class="fa fa-address-card-o text-purple"></i> Clients</a></li>
 
+                  <li><a href="view_appointments.php"><i class="fa fa-address-card-o text-purple"></i> Appointments</a></li>
+
                   <li class="active"><a href="salon_form.php"><i class="fa fa-pencil text-purple"></i> Update Service</a></li>
 
                   <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right text-red"></i> Logout</a></li>

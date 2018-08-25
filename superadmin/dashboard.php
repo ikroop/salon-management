@@ -167,6 +167,8 @@ require_once("../db.php");
 
                   <li><a href="users.php"><i class="fa fa-address-card-o text-purple"></i> Clients</a></li>
 
+                  <li><a href="view_appointments.php"><i class="fa fa-address-card-o text-purple"></i> Appointments</a></li>
+                  
                   <li><a href="attendants.php"><i class="fa fa-calculator text-purple"></i> Attendants</a></li>
 
                   <li><a href="logout.php"><i class="fa fa-arrow-circle-o-right text-red"></i> Logout</a></li>
