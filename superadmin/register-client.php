@@ -111,18 +111,6 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 
           <?php if(empty($_SESSION['id_admin']) && empty($_SESSION['id_company'])) { ?>
 
-          <li>
-
-            <a href="login.php">Login</a>
-
-          </li>
-
-          <li>
-
-            <a href="sign-up.php">Sign Up</a>
-
-          </li>  
-
           <?php } else { 
             if(isset($_SESSION['id_admin'])) { 
           ?>        
