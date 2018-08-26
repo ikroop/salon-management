@@ -135,6 +135,11 @@ require_once("../db.php");
             <a href="register-member.php">Add Client</a>
 
           </li>
+          <li>
+
+            <a href="duty_roster.php">Duty Roster</a>
+
+          </li>
 
         </ul>
 
@@ -266,16 +271,19 @@ else {
                       $sql = "SELECT commission FROM admin WHERE id_admin='$current_attendant'";
 
                       $result = $conn->query($sql);
+                      if($result->num_rows == 0) {
+                      
+                      }
                       while($row = $result->fetch_assoc()) 
                       {
 
                         $totalno = $row['commission'];
 
+                        echo "<span class='info-box-number'>";  echo "Ksh"; echo " "; echo $totalno; echo "</span>";
                       }
 
                     ?>
 
-                    <span class="info-box-number"><?php echo "Ksh"; echo " "; echo $totalno; ?></span>
 
                   </div>
 

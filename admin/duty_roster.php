@@ -6,7 +6,7 @@ session_start();
 
 
 
-if(empty($_SESSION['id_super'])) {
+if(empty($_SESSION['id_admin'])) {
 
   header("Location: index.php");
 
@@ -120,27 +120,15 @@ require_once("../db.php");
 
         <ul class="nav navbar-nav">
 
-          <?php if(empty($_SESSION['id_super'])) { ?>
-
-          <li>
-
-            <a href="login.php">Login</a>
-
-          </li>
+          <?php if(empty($_SESSION['id_admin'])) { ?>
 
           <?php } else { 
 
 
 
-            if(isset($_SESSION['id_super'])) { 
+            if(isset($_SESSION['id_admin'])) { 
 
           ?>        
-
-           <li>
-
-            <a href="register-attendant.php">Add Attendant</a>
-
-          </li>
 
           <?php
 
@@ -212,7 +200,9 @@ require_once("../db.php");
 
                   <li><a href="view_appointments.php"><i class="fa fa-address-card-o text-purple"></i> Appointments</a></li>
 
-                  <li class="active"><a href="attendants.php"><i class="fa fa-calculator text-purple"></i> Attendants</a></li>
+                  <li><a href="attendants.php"><i class="fa fa-calculator text-purple"></i> Attendants</a></li>
+
+                    <li class="active"><a href="duty_roster.php"><i class="fa fa-address-card-ox text-purple"></i> Duties</a></li>
 
                   <li><a href="logout.php"><i class="fa fa-arrow-circle-o-right text-red"></i> Logout</a></li>
 
