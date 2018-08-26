@@ -6,23 +6,11 @@ session_start();
 
 require_once("../db.php");
 
-if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) { 
-
-  header("Location: index.php");
-
-  exit();
-
-}
+$query = "SELECT * FROM centers";
 
 
 
-    // $connect = mysqli_connect("localhost","id5717774_teafarmer","2grateful", "id5717774_farmer");
-
-    $query = "SELECT * FROM centers";
-
-
-
-    $result = mysqli_query($connect, $query);
+$result = mysqli_query($connect, $query);
 
 ?>
 
