@@ -200,9 +200,7 @@ require_once("../db.php");
 
                   <li><a href="view_appointments.php"><i class="fa fa-address-card-o text-purple"></i> Appointments</a></li>
 
-                  <li><a href="attendants.php"><i class="fa fa-calculator text-purple"></i> Attendants</a></li>
-
-                    <li class="active"><a href="duty_roster.php"><i class="fa fa-address-card-ox text-purple"></i> Duties</a></li>
+                  <li class="active"><a href="duty_roster.php"><i class="fa fa-address-card-ox text-purple"></i> Duties</a></li>
 
                   <li><a href="logout.php"><i class="fa fa-arrow-circle-o-right text-red"></i> Logout</a></li>
 

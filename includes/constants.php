@@ -29,9 +29,6 @@
     define("SERVER", "us-cdbr-iron-east-01.cleardb.net");
     define("USERNAME", "b392fee07974af");
     
-    
-    
-    
     // your database's server
     // define("USERNAME", "root");
     // define("SERVER", "localhost");
