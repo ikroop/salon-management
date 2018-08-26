@@ -222,7 +222,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 
               <div class="form-group">
 
-                <input class="form-control input-lg" type="text" id="contactno" name="farmer_number" minlength="1" maxlength="10" onkeypress="return validatePhone(event);" placeholder="Client Number*" required>
+                <input class="form-control input-lg" type="text" id="contactno" name="client_number" minlength="1" maxlength="10" onkeypress="return validatePhone(event);" placeholder="Client Number*" required>
 
               </div>
 

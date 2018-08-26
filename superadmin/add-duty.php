@@ -27,7 +27,7 @@ if(isset($_POST)) {
     $duty_dated = mysqli_real_escape_string($conn, $_POST['duty_date']);
 
 
-	//sql query to check if email already exists or not
+	//sql query to check if attendant exists or not
 
 	$sql = "SELECT id_admin FROM admin WHERE id_admin='$attendant_num'";
 	
@@ -35,7 +35,7 @@ if(isset($_POST)) {
 
 
 
-	//if email not found then we can insert new data
+	//if attendant found then we can insert new data
 
 	if($result->num_rows > 0) {
 
@@ -75,7 +75,7 @@ if(isset($_POST)) {
 
 	} else {
 
-		//if email found in database then show email already exists error.
+		//if attenandt not found in database then show error.
 
 		$_SESSION['registerError'] = true;
 

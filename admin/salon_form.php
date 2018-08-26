@@ -250,7 +250,7 @@ if(empty($_SESSION['id_admin'])) {
                 <?php unset($_SESSION['failUpdate']); } ?>
                 
 
-                <form action="center.php" method="post" >
+                <form action="salon.php" method="post" >
 
                     <!--<select name="center_name" class="form-control input-lg" >
                      <?php while($row1 = mysqli_fetch_array($result1)):; ?>
@@ -288,7 +288,7 @@ if(empty($_SESSION['id_admin'])) {
 
                       <label>Cost</label>
 
-                        <input type="number" name="produce" class="form-control btn-sm input-lg" minlength="1" maxlength="10" placeholder="Cash in Ksh" required>
+                        <input type="number" name="cash" class="form-control btn-sm input-lg" minlength="1" maxlength="10" placeholder="Cash in Ksh" required>
 
                     </div>
 

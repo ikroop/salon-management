@@ -280,7 +280,7 @@ require_once("../db.php");
 
                         <td><?php echo $row['member_number']; ?></td>
 
-                        <td><?php echo $row['tithe']; ?></td>
+                        <td><?php echo $row['cash']; ?></td>
 
                         <td><?php echo $row['createdAt']; ?></td>
 

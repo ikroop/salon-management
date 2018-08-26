@@ -304,7 +304,7 @@ require_once("../db.php");
 
                             ?>
 
-                            <a href="deactivate-clerk.php?id=<?php echo $row['id_admin']; ?>" class="confirmation">Deactivate</a></td>
+                            <a href="deactivate-attendant.php?id=<?php echo $row['id_admin']; ?>" class="confirmation">Deactivate</a></td>
 
                             <?php
 
@@ -312,7 +312,7 @@ require_once("../db.php");
 
                             ?>
 
-                              <a href="approve-clerk.php?id=<?php echo $row['id_admin']; ?>" class="reactivate">Reactivate</a>
+                              <a href="approve-attendant.php?id=<?php echo $row['id_admin']; ?>" class="reactivate">Reactivate</a>
 
                             <?php
 
@@ -320,7 +320,7 @@ require_once("../db.php");
 
                         ?>    
 
-                        <td><a href="delete-clerk.php?id=<?php echo $row['id_admin']; ?>" class="confirmdelete">Delete</a></td>
+                        <td><a href="delete-attendant.php?id=<?php echo $row['id_admin']; ?>" class="confirmdelete">Delete</a></td>
 
                       </tr>  
 

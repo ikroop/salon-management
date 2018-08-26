@@ -15,11 +15,11 @@ if(isset($_POST)) {
 	$password = mysqli_real_escape_string($conn, $_POST['password']);
 
 
-	//sql query to check if email already exists or not
+	//sql query to check if username already exists or not
 	$sql = "SELECT username FROM admin WHERE username='$username'";
 	$result = $conn->query($sql);
 
-	//if email not found then we can insert new data
+	//if username not found then we can insert new data
 	if($result->num_rows == 0) {
 
 		//sql new registration insert query
@@ -48,6 +48,6 @@ if(isset($_POST)) {
 
 } else {
 	//redirect them back to register page if they didn't click register button
-	header("Location: register-farmer.php");
+	header("Location: register-attendant.php");
 	exit();
 }

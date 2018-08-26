@@ -21,6 +21,6 @@ if(isset($_POST)) {
 		echo $conn->error;
 	}
 } else {
-	header("Location: settings.php");
+	header("Location: attendants.php");
 	exit();
 }

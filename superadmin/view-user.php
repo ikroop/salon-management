@@ -110,7 +110,7 @@ require_once("../db.php");
                 <div class="clearfix"></div>
                 <hr>
                 <div>
-                  <p><span class="margin-right-10"><i class="fa fa-location-arrow text-purple"></i> <?php echo $row['tithe']; ?> Ksh</span> <i class="fa fa-calendar text-purple"></i>Registered At <?php echo date("d-M-Y", strtotime($row['createdAt'])); ?></p>              
+                  <p><span class="margin-right-10"><i class="fa fa-location-arrow text-purple"></i> <?php echo $row['cash']; ?> Ksh</span> <i class="fa fa-calendar text-purple"></i>Registered At <?php echo date("d-M-Y", strtotime($row['createdAt'])); ?></p>              
                 </div>
                 <div>
                 </div>
@@ -144,7 +144,7 @@ require_once("../db.php");
                 <div class="clearfix"></div>
                 <hr>
                 <div>
-                  <p><span class="margin-right-10"><i class="fa fa-location-arrow text-purple"></i> <?php echo $row['given_tithe']; ?> Ksh</span> <i class="fa fa-calendar text-purple"></i>Received At <?php echo  date("d-M-Y", strtotime($row['given_date'])); ?> for <span class="text-green"><?php echo  $row['service_offered']; ?></span> service</p>              
+                  <p><span class="margin-right-10"><i class="fa fa-location-arrow text-purple"></i> <?php echo $row['given_cash']; ?> Ksh</span> <i class="fa fa-calendar text-purple"></i>Received At <?php echo  date("d-M-Y", strtotime($row['given_date'])); ?> for <span class="text-green"><?php echo  $row['service_offered']; ?></span> service</p>              
                 </div>
                 <div>
                 </div>

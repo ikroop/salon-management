@@ -38,14 +38,6 @@ if($result->num_rows > 0) {
 
   while($row = $result->fetch_assoc()) {
 
-    // $sql1 = "SELECT * FROM users";
-
-  //             $result1 = $conn->query($sql1);
-
-  //             if($result1->num_rows > 0) {
-
-  //               while($row1 = $result1->fetch_assoc()) 
-
                 {
 
              ?>
@@ -69,8 +61,6 @@ if($result->num_rows > 0) {
               </div>
 
             </div>
-
-
 
     <?php
 

@@ -1,11 +1,7 @@
 <?php
 
 
-
-
-
 session_start();
-
 
 
 if(empty($_SESSION['id_admin'])) {
@@ -23,8 +19,6 @@ require_once("../db.php");
 
 
 if(isset($_POST)) {
-
-	
 
 	$sql = "UPDATE appointments SET active='3' WHERE client='$_GET[id]' ";
 

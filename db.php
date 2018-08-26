@@ -18,7 +18,7 @@ $dbname = "heroku_7ccf8a1d4c91da4";
 
 // $password = "2grateful";
 
-// $dbname = "er";
+// $dbname = "heroku_7ccf8a1d4c91da4";
 
 
 //Create New Database Connection

@@ -36,7 +36,7 @@
     // define("USERNAME", "root");
     // define("SERVER", "localhost");
     // define("PASSWORD", "2grateful");
-    // define("DATABASE", "er");
+    // define("DATABASE", "heroku_7ccf8a1d4c91da4");
     
     
 

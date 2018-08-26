@@ -111,44 +111,17 @@ require_once("../db.php");
       <div class="navbar-custom-menu">
 
         <ul class="nav navbar-nav">
-
-          <?php if(empty($_SESSION['id_admin'])) { ?>
-
-          <?php } else { 
-
-
-
-            if(isset($_SESSION['id_super'])) { 
-
-          ?>        
-
           <li>
 
-            <a href="index.php">Dashboard</a>
+            <a href="dashboard.php">Dashboard</a>
 
           </li>
-
-          <?php
-
-          } else if(isset($_SESSION['id_super'])) { 
-
-          ?>        
-
-          <li>
-
-            <a href="company/index.php">Dashboard</a>
-
-          </li>
-
-          <?php } ?>
 
           <li>
 
             <a href="logout.php">Logout</a>
 
           </li>
-
-          <?php } ?>          
 
         </ul>
 
@@ -236,18 +209,9 @@ require_once("../db.php");
             $total_pages = 1;
 
           }
-
-
-
           ?>
 
-
-
-          
-
             <div id="target-content">
-
-              
 
             </div>
 
@@ -257,12 +221,6 @@ require_once("../db.php");
 
             </div> 
 
-
-
-
-
-
-
           </div>
 
         </div>
@@ -270,12 +228,6 @@ require_once("../db.php");
       </div>
 
     </section>
-
-
-
-    
-
-
 
   </div>
 

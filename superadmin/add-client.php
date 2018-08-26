@@ -30,7 +30,7 @@ if(isset($_POST)) {
 
 	$occupation = mysqli_real_escape_string($conn, $_POST['occupation']);
 
-	$member_number = mysqli_real_escape_string($conn, $_POST['farmer_number']);
+	$member_number = mysqli_real_escape_string($conn, $_POST['client_number']);
 
 	$added_by = mysqli_real_escape_string($conn, $_SESSION['id_admin']);
 
@@ -38,7 +38,7 @@ if(isset($_POST)) {
 
 
 
-	//sql query to check if email already exists or not
+	//sql query to check if number already exists or not
 
 	$sql = "SELECT member_number FROM users1 WHERE member_number='$member_number'";
 	
@@ -46,7 +46,7 @@ if(isset($_POST)) {
 
 
 
-	//if email not found then we can insert new data
+	//if number not found then we can insert new data
 
 	if($result->num_rows == 0) {
 
@@ -86,7 +86,7 @@ if(isset($_POST)) {
 
 	} else {
 
-		//if email found in database then show email already exists error.
+		//if number found in database then show username already exists error.
 
 		$_SESSION['registerError'] = true;
 

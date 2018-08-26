@@ -239,7 +239,7 @@ require_once("../db.php");
 
                     <?php
 
-                      $sql = "SELECT SUM(tithe) As total FROM users1";
+                      $sql = "SELECT SUM(cash) As total FROM users1";
 
                       $result = $conn->query($sql);
                       $row = $result->fetch_assoc();

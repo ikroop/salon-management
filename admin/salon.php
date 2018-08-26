@@ -4,19 +4,19 @@ require("../config.php");
 require_once("../db.php");
 // require_once("../config.php");
 $member_number = $_POST['member_number'];
-$tithe = $_POST['produce'];
+$cash = $_POST['cash'];
 $service_offered = (string)$_POST['service_offered'];
 // if form was submitted 
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
-	 if(empty($_POST["member_number"]) || empty($_POST["produce"]))
+	 if(empty($_POST["member_number"]) || empty($_POST["cash"]))
 	 {
 		 if(empty($_POST["member_number"]))
 	 	{
 			 print("Nice work, hacker!");
 	 		die();
 		}
-		if(empty($_POST["produce"]))
+		if(empty($_POST["cash"]))
 		{
 			print('Please input The Cost.');
 			die();
@@ -36,14 +36,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 				$current_attendant = $_SESSION['id_admin'];
 
 				// calculate commission
-				$commission = $tithe * 0.1;
+				$commission = $cash * 0.1;
 				
-				query("UPDATE users1 SET tithe = tithe + '$tithe' WHERE member_number='$member_number'");
+				query("UPDATE users1 SET cash = cash + '$cash' WHERE member_number='$member_number'");
 
 				// update commission
 				query("UPDATE admin SET commission = commission + '$commission' WHERE id_admin='$current_attendant'");
 				
-				query("INSERT INTO history (id_member, service_offered, given_tithe) VALUES($member_number, '$service_offered', $tithe)");
+				query("INSERT INTO history (id_member, service_offered, given_cash) VALUES($member_number, '$service_offered', $cash)");
 				//Set some session variables for easy reference
 				$_SESSION['successfulupdate'] = true;
 				 header("Location: salon_form.php");
