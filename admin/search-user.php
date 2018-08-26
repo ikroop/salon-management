@@ -112,55 +112,17 @@ require_once("../db.php");
 
         <ul class="nav navbar-nav">
 
-          <?php if(empty($_SESSION['id_admin'])) { ?>
-
-          <li>
-
-            <a href="login.php">Login</a>
-
-          </li>
-
-          <li>
-
-            <a href="sign-up.php">Sign Up</a>
-
-          </li>  
-
-          <?php } else { 
-
-
-
-            if(isset($_SESSION['id_super'])) { 
-
-          ?>        
-
           <li>
 
             <a href="index.php">Dashboard</a>
 
           </li>
 
-          <?php
-
-          } else if(isset($_SESSION['id_super'])) { 
-
-          ?>        
-
-          <li>
-
-            <a href="company/index.php">Dashboard</a>
-
-          </li>
-
-          <?php } ?>
-
           <li>
 
             <a href="logout.php">Logout</a>
 
           </li>
-
-          <?php } ?>          
 
         </ul>
 
