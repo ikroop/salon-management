@@ -6,7 +6,7 @@ session_start();
 
 
 
-if(empty($_SESSION['id_admin'])) {
+if(empty($_SESSION['id_super'])) {
 
   header("Location: index.php");
 
