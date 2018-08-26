@@ -114,18 +114,6 @@ require_once("../db.php");
 
           <?php if(empty($_SESSION['id_admin'])) { ?>
 
-          <li>
-
-            <a href="login.php">Login</a>
-
-          </li>
-
-          <li>
-
-            <a href="sign-up.php">Sign Up</a>
-
-          </li>  
-
           <?php } else { 
 
 
